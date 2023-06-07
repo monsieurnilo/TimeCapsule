@@ -1,15 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Article = require('./models/article');
+bodyParser = require('body-parser').json();
 
 const app = express();
-
-mongoose.connect('mongodb+srv://timecapsule:f3ZYIHDpX7xPiXtf@timecapsule.7vjj9ei.mongodb.net/?retryWrites=true&w=majority',
-  { useNewUrlParser: true,
-    useUnifiedTopology: true })
-  .then(() => console.log('Connexion à MongoDB réussie !'))
-  .catch(() => console.log('Connexion à MongoDB échouée !'));
-
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -18,13 +12,21 @@ app.use((req, res, next) => {
   next();
 });
 
+mongoose.connect('mongodb+srv://timecapsule:f3ZYIHDpX7xPiXtf@timecapsule.7vjj9ei.mongodb.net/?retryWrites=true&w=majority',
+  { useNewUrlParser: true,
+    useUnifiedTopology: true })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
+
+
+
 app.use('/getAllArticle', (req, res, next) => {
-    Thing.find()
+    Article.find()
     .then(things => res.status(200).json(things))
     .catch(error => res.status(400).json({ error }));
   });
 
-  app.post('/addArticle', (req, res, next) => {
+  app.post('/addArticle', bodyParser, (req, res, next) => {
     delete req.body._id;
     const article = new Article({
       ...req.body
