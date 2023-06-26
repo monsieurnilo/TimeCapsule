@@ -1,9 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Article = require('./models/article');
-bodyParser = require('body-parser').json();
+const articleRoutes = require('./routes/article');
+const userRoutes = require('./routes/user');
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -18,22 +21,7 @@ mongoose.connect('mongodb+srv://timecapsule:f3ZYIHDpX7xPiXtf@timecapsule.7vjj9ei
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-
-
-app.use('/getAllArticle', (req, res, next) => {
-    Article.find()
-    .then(things => res.status(200).json(things))
-    .catch(error => res.status(400).json({ error }));
-  });
-
-  app.post('/addArticle', bodyParser, (req, res, next) => {
-    delete req.body._id;
-    const article = new Article({
-      ...req.body
-    });
-    article.save()
-      .then(() => res.status(201).json({ message: 'Article enregistré !'}))
-      .catch(error => res.status(400).json({ error }));
-  });
+app.use('/article', articleRoutes);
+app.use('/auth', userRoutes);
 
 module.exports = app;
