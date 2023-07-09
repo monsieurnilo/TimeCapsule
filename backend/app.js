@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const articleRoutes = require('./routes/article');
 const userRoutes = require('./routes/user');
 
+require('dotenv').config();
+
 const app = express();
 
 app.use(express.json());
@@ -15,7 +17,7 @@ app.use((req, res, next) => {
   next();
 });
 
-mongoose.connect('mongodb+srv://timecapsule:f3ZYIHDpX7xPiXtf@timecapsule.7vjj9ei.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect(`mongodb+srv://timecapsule:${process.env.ID}@timecapsule.${process.env.PWD}.mongodb.net/?retryWrites=true&w=majority`,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
