@@ -3,20 +3,33 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { ArticleComponent } from './article/article.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { CreateComponent } from './pages/create/create.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { ArticlesService } from './services/articles.service';
+import { ArticlesApiService } from './services/articles.api.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ArticleComponent
+    LoginComponent,
+    CreateComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ArticlesService,
+    ArticlesApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

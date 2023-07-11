@@ -1,0 +1,12 @@
+<p *ngIf="!articleDisplayed">Bienvenue sur TimeCapsule</p>
+<p *ngIf="articleDisplayed">{{ articleDisplayed.contenu }}</p>
+
+
+<label for="tag-select">Choisi ton poison:</label>
+
+<select name="tags" id="tag-select" [(ngModel)]="tagSelected">
+    <option *ngFor="let option of tagOptions" [value]="option.value">{{ option.text }}</option>
+</select>
+<button (click)="displayArticle()">Je souhaite apprendre enculé</button>
+
+
