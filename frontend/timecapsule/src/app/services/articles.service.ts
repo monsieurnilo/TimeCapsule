@@ -17,7 +17,22 @@ export class ArticlesService {
     }catch(error){
       throw error;
     }
-    
+  }
+
+  public async deleteArticle(id: string): Promise<Article[]> {
+    try{
+      return await this.api.deleteArticle(id);
+    }catch(error){
+      throw error;
+    }
+  }
+
+  public async getOneArticle(id: string): Promise<Article[]> {
+    try{
+      return await this.api.getOneArticle(id);
+    }catch(error){
+      throw error;
+    }
   }
 
 }
