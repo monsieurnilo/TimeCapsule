@@ -1,1 +1,3 @@
-<p>admin works!</p>
+<app-article-preview [headers]="headers" [body]="articles" (selectedLine)="selectArticle($event)" (deletedItem)="deleteArticle($event)"></app-article-preview>
+
+

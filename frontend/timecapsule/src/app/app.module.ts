@@ -10,7 +10,8 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { ArticlesService } from './services/articles.service';
 import { ArticlesApiService } from './services/articles.api.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ArticlePreviewComponent } from './components/article-preview/article-preview.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,12 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     CreateComponent,
     AdminComponent,
+    ArticlePreviewComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

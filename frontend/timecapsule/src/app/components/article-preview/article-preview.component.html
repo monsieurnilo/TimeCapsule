@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let header of headers">{{ header.text }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of body" (click)="selectLine(item._id)">
+            <td *ngFor="let field of headers">
+                <ng-container *ngIf="field.type==='string'"> {{ item[field.reference] }}</ng-container>
+                <ng-container *ngIf="field.type==='date'"> {{ item[field.reference] | date:"shortDate" }}</ng-container>
+                <ng-container *ngIf="field.type==='edit'">edit</ng-container>
+                <div *ngIf="field.type==='delete'" (click)="deleteItem($event, item._id)">delete</div>
+                
+            </td>
+        </tr>
+    </tbody>
+</table>
