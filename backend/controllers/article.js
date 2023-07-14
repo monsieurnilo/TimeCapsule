@@ -6,7 +6,7 @@ exports.createArticle = (req, res) => {
       contenu : req.body.contenu,
       tag : req.body.tag,
       source : req.body.source,
-      date : req.body.date
+      date : new Date()
     });
     article.save().then(
         () => {
@@ -40,12 +40,14 @@ exports.getOneArticle= (req, res, next) => {
 
 exports.modifyArticle = (req, res, next) => {
     const article = new Article({
+        _id: req.params.id,
         title : req.body.title,
         contenu : req.body.contenu,
         tag : req.body.tag,
         source : req.body.source,
         date : req.body.date
       });
+      console.log(req.params.id)
     Article.updateOne({ _id: req.params.id }, article).then(
         () => {
             res.status(200).json(
@@ -54,6 +56,7 @@ exports.modifyArticle = (req, res, next) => {
         }
     ).catch(
         (error) => {
+            console.log(error)
             res.status(400).json({
                 error: error
             });

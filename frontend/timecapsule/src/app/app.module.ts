@@ -12,6 +12,7 @@ import { ArticlesApiService } from './services/articles.api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArticlePreviewComponent } from './components/article-preview/article-preview.component';
+import { ArticleFormComponent } from './components/article-form/article-form.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ArticlePreviewComponent } from './components/article-preview/article-pr
     CreateComponent,
     AdminComponent,
     ArticlePreviewComponent,
+    ArticleFormComponent,
   ],
   imports: [
     BrowserModule,

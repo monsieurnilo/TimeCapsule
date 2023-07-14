@@ -10,10 +10,6 @@ export const headers = [
         type:"date",
     },
     {
-        text: "Modifier",
-        reference:null,
-        type:"edit",
-    },{
         text: "Supprimer",
         reference:null,
         type:"delete",

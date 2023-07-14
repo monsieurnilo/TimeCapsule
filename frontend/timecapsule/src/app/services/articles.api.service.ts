@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, lastValueFrom } from 'rxjs';
 import { Article } from '../interfaces/article.interface';
-import { User } from '../interfaces/user.interface';
-import { headers } from '../utils/article-preview.utils';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +24,10 @@ export class ArticlesApiService {
   }
 
   public modifyArticle(id:string, article: Article): Promise<any> {
-    return lastValueFrom(this.http.put(`${this.baseUrl}/${id}`, article));
+    return lastValueFrom(this.http.put(`${this.baseUrl}/${id}`, article, {headers : new HttpHeaders().set("Authorization", `Bearer ${localStorage.getItem("token")}`)}));
   }
 
+  public createArticle(article: Article): Promise<any> {
+    return lastValueFrom(this.http.post(`${this.baseUrl}`, article, {headers : new HttpHeaders().set("Authorization", `Bearer ${localStorage.getItem("token")}`)}));
+  }
 }

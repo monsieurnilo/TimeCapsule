@@ -27,9 +27,25 @@ export class ArticlesService {
     }
   }
 
-  public async getOneArticle(id: string): Promise<Article[]> {
+  public async getOneArticle(id: string): Promise<Article> {
     try{
       return await this.api.getOneArticle(id);
+    }catch(error){
+      throw error;
+    }
+  }
+
+  public async createArticle(article : Article): Promise<any> {
+    try{
+      return await this.api.createArticle(article);
+    }catch(error){
+      throw error;
+    }
+  }
+
+  public async modifyArticle(id:string ,article : Article): Promise<any> {
+    try{
+      return await this.api.modifyArticle(id,article);
     }catch(error){
       throw error;
     }

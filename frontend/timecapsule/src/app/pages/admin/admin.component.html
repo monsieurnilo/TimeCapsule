@@ -1,3 +1,7 @@
-<app-article-preview [headers]="headers" [body]="articles" (selectedLine)="selectArticle($event)" (deletedItem)="deleteArticle($event)"></app-article-preview>
+<div *ngIf="!displayForm">
+    <app-article-preview  [headers]="headers" [body]="articles" (selectedLine)="openForm($event)" (deletedItem)="deleteArticle($event)"></app-article-preview>
+    <button (click)="openForm()">Creer un article</button>
+</div>
+<app-article-form *ngIf="displayForm" [id]="selectedIdArticle" (closedForm)="closeForm($event)"></app-article-form>
 
 

@@ -1,0 +1,12 @@
+
+<form [formGroup]="articleForm">
+    <input type="text" formControlName="title" placeholder="Titre de l'article">
+    <input type="text" formControlName="contenu" placeholder="Ecrivez votre article ici">
+    <select name="tags" id="tag-select" formControlName="tag">
+        <option *ngFor="let option of tagOptions" [value]="option.value">{{ option.text }}</option>
+    </select>
+    <input type="text" formControlName="source" placeholder="Indiquez ici la source de l'article">
+</form>
+
+<button (click)="validate()">Valider</button>
+<button (click)="close(false)">Annuler</button>
