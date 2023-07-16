@@ -1,0 +1,6 @@
+@media(max-width: 768px) { /* <== Changer la resolution si non responsive */
+  .reverse-columns {
+    flex-direction: column-reverse;
+    display: flex;
+  }
+}

@@ -1,6 +1,30 @@
-<form [formGroup]="loginForm">
-    <input type="email" formControlName="email" placeholder="Adresse email">
-    <input type="password" formControlName="password">
-</form>
-
-<button (click)="login()">Se connecter</button>
+<div class="is-flex is-justify-content-center is-align-items-center is-fullscreen">
+  <form [formGroup]="loginForm">
+    <div class="card">
+      <div class="card-content">
+        <div class="content">
+          <h2 class="title has-text-dark has-text-centered">
+            Se connecter pour continuer
+          </h2>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input type="email" class="input" formControlName="email" placeholder="Adresse email">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+              <input type="password" class="input" formControlName="password" placeholder="Mot de passe">
+            </div>
+          </div>
+          <div class="field has-text-centered">
+            <div class="control">
+              <button class="button is-success" (click)="login()">Se connecter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

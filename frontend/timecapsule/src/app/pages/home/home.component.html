@@ -1,12 +1,48 @@
-<p *ngIf="!articleDisplayed">Bienvenue sur TimeCapsule</p>
-<p *ngIf="articleDisplayed">{{ articleDisplayed.contenu }}</p>
-
-
-<label for="tag-select">Choisi ton poison:</label>
-
-<select name="tags" id="tag-select" [(ngModel)]="tagSelected">
-    <option *ngFor="let option of tagOptions" [value]="option.value">{{ option.text }}</option>
-</select>
-<button (click)="displayArticle()">Je souhaite apprendre enculé</button>
-
-
+<div class="columns is-gapless reverse-columns">
+  <div class="column">
+    <section class="hero is-fullheight" *ngIf="!articleDisplayed">
+      <div class="hero-body">
+        <div class="">
+          <p class="title">
+            TimeCapsule
+          </p>
+          <p class="subtitle">
+            Bienvenue
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="hero is-fullheight" *ngIf="articleDisplayed">
+      <div class="hero-body">
+        <div class="">
+          <p class="title">
+            {{ articleDisplayed.title }}
+          </p>
+          <p class="subtitle">
+            {{ articleDisplayed.tag }}
+          </p>
+          <hr>
+          <p>{{ articleDisplayed.contenu }}</p>
+          <br>
+          <a href="{{ articleDisplayed.source }}">Source</a>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="column is-1 is-flex is-justify-content-end">
+    <button class="button is-medium is-primary mt-2 mr-2" (click)="toggleColumn()">
+      <span class="icon">
+        <i class="fa-solid fa-bars fa-lg"></i>
+      </span>
+    </button>
+  </div>
+  <div class="column is-one-quarter-desktop is-half-tablet has-background-primary" [ngClass]="{'is-hidden': !isOpen}">
+    <div class="card m-5">
+      <div class="card-content">
+        <div class="content">
+          <app-side-menu (displayedArticle)="displayArticle($event)"></app-side-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
