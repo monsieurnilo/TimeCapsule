@@ -7,14 +7,15 @@
   <tbody>
     <tr *ngFor="let item of body" (click)="selectLine(item._id)">
       <td *ngFor="let field of headers">
-        <ng-container *ngIf="field.type==='string'"> {{ item[field.reference] }}</ng-container>
+        <ng-container *ngIf="field.type==='string'"><a class="has-text-link">{{ item[field.reference] }}</a></ng-container>
         <ng-container *ngIf="field.type==='date'"> {{ item[field.reference] | date:"shortDate" }}</ng-container>
         <ng-container *ngIf="field.type==='edit'">edit</ng-container>
         <button class="button is-danger is-outlined" *ngIf="field.type==='delete'"
-          (click)="deleteItem($event, item._id)"><span>Supprimer</span>
+          (click)="deleteItem($event, item._id)">
           <span class="icon is-small">
             <i class="fas fa-times"></i>
-          </span></button>
+          </span>
+          <span>Supprimer</span></button>
       </td>
     </tr>
   </tbody>

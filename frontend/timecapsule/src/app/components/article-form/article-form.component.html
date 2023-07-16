@@ -1,12 +1,98 @@
-
-<form [formGroup]="articleForm">
-    <input type="text" formControlName="title" placeholder="Titre de l'article">
-    <input type="text" formControlName="contenu" placeholder="Ecrivez votre article ici">
-    <select name="tags" id="tag-select" formControlName="tag">
-        <option *ngFor="let option of tagOptions" [value]="option.value">{{ option.text }}</option>
-    </select>
-    <input type="text" formControlName="source" placeholder="Indiquez ici la source de l'article">
-</form>
-
-<button (click)="validate()">Valider</button>
-<button (click)="close(false)">Annuler</button>
+<section class="section">
+  <div class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <span class="is-size-3 is-inline has-text-grey-light">Admin /</span>
+        <span class="title is-3 is-inline">Gestion de l'article</span>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <div class="buttons is-right">
+          <button class="button is-danger" (click)="close(false)">
+            <span class="icon">
+              <i class="fa-solid fa-person-walking-arrow-loop-left"></i>
+            </span>
+            <span>Retour</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="card mx-6">
+  <div class="card-content">
+    <form [formGroup]="articleForm">
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Titre</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" formControlName="title" placeholder="Ecrivez le titre de l'article ici">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Catégorie</label>
+        </div>
+        <div class="field-body">
+          <div class="field is-narrow">
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select name="tags" id="tag-select" formControlName="tag">
+                  <option *ngFor="let option of tagOptions" [value]="option.value">{{ option.text }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Source</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" formControlName="source"
+                placeholder="Indiquez ici la source de l'article">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Corps</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <textarea class="textarea" formControlName="contenu" placeholder="Ecrivez votre article ici"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label">
+          <!-- Left empty for spacing -->
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <button class="button is-success" (click)="validate()">
+                <span class="icon is-small">
+                  <i class="fas fa-check"></i>
+                </span>
+                <span>Sauvegarder</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

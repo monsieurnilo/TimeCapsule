@@ -1,7 +1,33 @@
 <div *ngIf="!displayForm">
-    <app-article-preview  [headers]="headers" [body]="articles" (selectedLine)="openForm($event)" (deletedItem)="deleteArticle($event)"></app-article-preview>
-    <button (click)="openForm()">Creer un article</button>
+  <section class="section">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <span class="is-size-3 is-inline has-text-grey-light">Admin /</span>
+          <span class="title is-3 is-inline">Liste des articles</span>
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <div class="buttons is-right">
+            <button class="button is-success" (click)="openForm()">
+              <span class="icon">
+                <i class="fa-solid fa-plus"></i>
+              </span>
+              <span>Créer un article</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="card mx-6">
+    <div class="card-content">
+      <app-article-preview [headers]="headers" [body]="articles" (selectedLine)="openForm($event)"
+        (deletedItem)="deleteArticle($event)"></app-article-preview>
+    </div>
+  </div>
 </div>
+
+
 <app-article-form *ngIf="displayForm" [id]="selectedIdArticle" (closedForm)="closeForm($event)"></app-article-form>
-
-
