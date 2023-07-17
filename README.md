@@ -4,8 +4,11 @@ Application web permettant de vulgariser l’Histoire
 <code>git clone https://github.com/R-17/TimeCapsule.git</code>
 npm install</code>
 ### Lancer le backend
-<code>cd .\backend\
-npm install
+<code>cd .\backend\</code>
+
+Créer un fichier .env pour copier les logs de la db
+
+<code>npm install
 node server</code>
 ### Lancer le frontend
 <code>cd .\frontend\timecapsule\
