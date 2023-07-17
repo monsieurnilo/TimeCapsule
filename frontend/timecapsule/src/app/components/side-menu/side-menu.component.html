@@ -1,0 +1,32 @@
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Catégorie</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <div class="select">
+            <select name="tags" id="tag-select" [(ngModel)]="tagSelected">
+              <option *ngFor="let option of tagOptions" [value]="option.value">{{ option.text }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field is-horizontal">
+    <!-- <div class="field-label"> -->
+      <!-- Left empty for spacing -->
+    <!-- </div> -->
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <button class="button is-link mt-2" (click)="displayArticle()">
+            Découvrir
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+

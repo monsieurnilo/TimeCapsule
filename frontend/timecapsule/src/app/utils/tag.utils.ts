@@ -1,17 +1,30 @@
 export const tagOptions = [
-    {
-        value: "tous",
-        text: "Selectionner un tag",
-    },
-    {
-        value: "tag",
-        text: "Peut importe je veux apprendre",
-    },
-    {
-        value: "jhg",
-        text: "Seconde Guerre Mondiale",
-    },
+  {
+    value: 'tous',
+    text: 'Toutes',
+  },
+  {
+    value: 'Préhistoire',
+    text: 'Préhistoire',
+  },
+  {
+    value: 'Antiquité',
+    text: 'Antiquité',
+  },
+  {
+    value: 'Moyen-Âge',
+    text: 'Moyen-Âge',
+  },
+  {
+    value: 'Moderne',
+    text: 'Moderne',
+  },
+  {
+    value: 'Contemporain',
+    text: 'Contemporain',
+  },
+];
 
-]
-
-export const getRandom = (max :number) => { return Math.floor(Math.random() * max)}
+export const getRandom = (max: number) => {
+  return Math.floor(Math.random() * max);
+};
