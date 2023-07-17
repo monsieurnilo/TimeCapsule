@@ -1,6 +1,6 @@
 export const tagOptions = [
   {
-    value: 'Toutes',
+    value: 'tous',
     text: 'Toutes',
   },
   {
