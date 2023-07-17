@@ -22,7 +22,7 @@
             {{ articleDisplayed.tag }}
           </p>
           <hr>
-          <p>{{ articleDisplayed.contenu }}</p>
+          <p class="has-text-justified">{{ articleDisplayed.contenu }}</p>
           <br>
           <p>{{ articleDisplayed.source }}</p>
         </div>
@@ -30,13 +30,13 @@
     </section>
   </div>
   <div class="column is-1 is-flex is-justify-content-end">
-    <button class="button is-medium is-primary mt-2 mr-2" (click)="toggleColumn()">
+    <button class="button is-medium is-link mt-2 mr-2" (click)="toggleColumn()">
       <span class="icon">
         <i class="fa-solid fa-bars fa-lg"></i>
       </span>
     </button>
   </div>
-  <div class="column is-one-quarter-desktop is-half-tablet has-background-primary" [ngClass]="{'is-hidden': !isOpen}">
+  <div class="column is-one-quarter-desktop is-half-tablet has-background-link" [ngClass]="{'is-hidden': !isOpen}">
     <div class="card m-5">
       <div class="card-content">
         <div class="content">

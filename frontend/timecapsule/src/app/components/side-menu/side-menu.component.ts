@@ -11,7 +11,7 @@ import { ArticlesService } from 'src/app/services/articles.service';
 export class SideMenuComponent {
   private articles: Article[] = [];
   public tagOptions = tagOptions;
-  public tagSelected = "selectionner un tag";
+  public tagSelected = "tous";
   isMenuOpen = false;
   @Output() displayedArticle = new EventEmitter();
 
